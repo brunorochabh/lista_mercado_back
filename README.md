@@ -1,5 +1,3 @@
-# lista_mercado_back
-Repositório da API da lista do merca feito Java com Springboot
 # Sistema Lista de Mercado
 ## Requisitos
 - Ser capaz de gerenciar várias listas de mercado (e marcar seu status como concluída ou não)
