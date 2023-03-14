@@ -9,40 +9,35 @@ import br.com.bruno.appmercado.model.Produto;
 import br.com.bruno.appmercado.repo.ProdutoRepo;
 
 @Component
-public class ProdutoServiceImpl implements IProdutoService{
-	
+public class ProdutoServiceImpl implements IProdutoService {
+
 	@Autowired
 	private ProdutoRepo repo;
 
 	@Override
 	public Produto criarNovoProduto(Produto prod) {
 		// TODO Auto-generated method stub
+		if (prod.getNome() == null || prod.getNome().length() == 0)
+			return null;
 		return repo.save(prod);
-	}
-
-	@Override
-	public Produto alterarProduto(Produto prod) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
 	public List<Produto> listarTodos() {
 		// TODO Auto-generated method stub
-		return null;
+		return (List<Produto>) repo.findAll();
 	}
 
 	@Override
 	public List<Produto> buscarPorPalavraChave(String key) {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.findAllByNomeContaining(key);
 	}
 
 	@Override
 	public Produto buscarPorId(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.findById(id).orElse(null);
 	}
-	
 
 }
